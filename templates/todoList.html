@@ -1,0 +1,57 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2" />
+  </head>
+  <body>
+    <h1 class="title">My to do list</h1>
+
+    <form class="form" action="/addTodoItem/" method="post">
+      {% csrf_token %}
+      <input
+        type="text"
+        class="content-input"
+        placeholder="Todo"
+        name="content"
+      />
+      <button class="form-btn">Записать</button>
+    </form>
+
+    <ul class="list">
+      {% for el in all_items %}
+      <li class="item">
+        {{el.content}} {% if el.edit %}
+        <form action="/saveTodoItem/{{el.id}}/" method="post">
+          {% csrf_token %}
+          <input
+            class="btn-edit"
+            type="text"
+            name="content"
+            value="{{el.content}}"
+            minlength="2"
+            required
+          />
+          <input type="submit" value="save" />
+        </form>
+
+        {% else %}
+        <form action="/deleteTodoItem/{{el.id}}/" method="post">
+          {% csrf_token %}
+          <input class="btn-delete" type="submit" value="Delete" />
+        </form>
+        <form action="/editTodoItem/{{el.id}}/" method="post">
+          {% csrf_token %}
+          <input class="btn-edit" type="submit" value="Edit" />
+        </form>
+        {% endif %}
+      </li>
+      {% endfor %} {% if all_items|length == 0 %}
+      <li class="item">Список дел пуст</li>
+      {% endif %}
+    </ul>
+  </body>
+</html>

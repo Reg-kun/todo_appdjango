@@ -1,0 +1,76 @@
+body {
+  background-color: pink;
+}
+h1 {
+  color: black;
+}
+
+.form {
+  margin: 0 auto;
+  width: 450px;
+  border: 1px solid black;
+  height: 200px;
+  box-shadow: 10px 15px 20px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.content-input {
+  display: block; /* block */
+  margin: 0 auto; /* центр */
+  border: none; /* граница */
+  height: 40px; /* высота */
+  width: 80%; /* ширина */
+  margin-top: 30px;
+  border-radius: 5px;
+  outline-color: palevioletred;
+  outline-width: 1px;
+  padding-left: 20px;
+}
+
+.form-btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.list {
+  width: 30%;
+  margin: 30px auto;
+  padding: 0;
+  list-style: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+  padding: 2% 2%;
+}
+
+.btn-delete {
+  padding: 5% 10%;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(150, 53, 53);
+  color: black;
+}
+
+.btn-edit {
+  padding: 5% 10%;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(86, 86, 185);
+  color: black;
+}
